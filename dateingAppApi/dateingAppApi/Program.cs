@@ -12,7 +12,7 @@ builder.Services.AddDbContext<DateAppContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
 });
 builder.Services.AddSwaggerGen();
-
+builder.Services.AddCors();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -23,7 +23,10 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseCors(policy =>
+{
+    policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:4200");
+});
 app.UseAuthorization();
 
 app.MapControllers();
