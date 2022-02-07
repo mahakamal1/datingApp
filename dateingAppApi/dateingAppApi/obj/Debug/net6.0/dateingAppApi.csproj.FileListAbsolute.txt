@@ -57,4 +57,4 @@ E:\datingApp\dateingAppApi\dateingAppApi\obj\Debug\net6.0\dateingAppApi.dll
 E:\datingApp\dateingAppApi\dateingAppApi\obj\Debug\net6.0\ref\dateingAppApi.dll
 E:\datingApp\dateingAppApi\dateingAppApi\obj\Debug\net6.0\dateingAppApi.pdb
 E:\datingApp\dateingAppApi\dateingAppApi\obj\Debug\net6.0\dateingAppApi.genruntimeconfig.cache
-E:\datingApp\dateingAppApi\dateingAppApi\obj\Debug\net6.0\dateingAppApi.csproj.AssemblyReference.cache
+E:\datingApp\dateingAppApi\dateingAppApi\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

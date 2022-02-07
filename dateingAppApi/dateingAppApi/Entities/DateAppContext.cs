@@ -1,7 +1,5 @@
-﻿global using Microsoft.EntityFrameworkCore;
+﻿namespace dateingAppApi.Entities;
 
-namespace dateingAppApi.Entities
-{
     public class DateAppContext : DbContext
     {
         public DateAppContext(DbContextOptions options) : base(options)
@@ -20,4 +18,4 @@ namespace dateingAppApi.Entities
                 .IsRequired();
         }
     }
-}
+

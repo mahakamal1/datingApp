@@ -1,28 +1,24 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿namespace dateingAppApi.Controllers;
 
-namespace dateingAppApi.Controllers
-{
-    [Route("api/[controller]")]
-    [ApiController]
-    public class UsersController : ControllerBase
+    public class UsersController : BaseApiController
     {
         private readonly DateAppContext _context;
         public UsersController(DateAppContext context)
         {
             _context = context; 
         }
-
+        [AllowAnonymous]
         [HttpGet]
-        public async Task<IEnumerable<AppUser>> GetAllUsers()
+        public async Task<ActionResult<IEnumerable<AppUser>>> GetAllUsers()
         {
             return await _context.Users.ToListAsync();
         }
 
+        [Authorize]
         [HttpGet("{id}")]
-        public async Task<AppUser> GetUser(int id)
+        public async Task<ActionResult<AppUser>> GetUser(int id)
         {
             return await _context.Users.FindAsync(id);
         }
     }
-}
+
