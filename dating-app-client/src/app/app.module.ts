@@ -6,19 +6,27 @@ import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { NavComponent } from './components/Shared/nav/nav.component'
+import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BsDropdownModule,BsDropdownConfig } from 'ngx-bootstrap/dropdown';
+import { MatchesComponent } from './components/matches/matches.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    NavComponent
+    NavComponent,
+    MatchesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    BsDropdownModule
   ],
-  providers: [],
+  providers: [BsDropdownConfig],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

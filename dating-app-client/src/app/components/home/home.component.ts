@@ -9,15 +9,15 @@ import { UserService } from 'src/Services/user.service';
 })
 export class HomeComponent implements OnInit {
 
-  usersList : User[] = [];
+  usersList : [] = [];
   constructor(private userService:UserService) { }
 
   ngOnInit(){
     this.getAll()
   }
-  getAll(){
-    this.userService.getAllUsers().subscribe(res => {
-      console.log(res);
+  async getAll(){
+    await this.userService.getAllUsers().subscribe( res => {
+       console.log(res);
     },
     err => {
       console.log(err);
