@@ -1,6 +1,14 @@
-<div class="row text-center">
-  <div class="d-flex">
-    <button class="btn btn-info">Register Now</button>
-    <button class="btn btn-outline-info" style="margin-left: 30px;"> Learn More</button>
+<div class="row text-center" *ngIf="!TooglerMode">
+  <h1>find your match</h1>
+  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic quas natus autem aspernatur explicabo libero doloremque veritatis illum necessitatibus deserunt quam est cupiditate, blanditiis impedit expedita ex recusandae in dignissimos?</p>
+    <div class="text-center">
+      <button class="btn btn-lg " id="RegisterBtn" (click)="toogleRegisterMode()">Register Now</button>
+      <button class="btn btn-lg" id="LearnMoreBtn" style="margin-left: 20px;"> Learn More</button>
+    </div>
+</div>
+
+<div class="row" *ngIf="TooglerMode">
+  <div class="col-lg-6 mx-auto">
+    <app-register (cancelFromRegisterToHome)="CancelRegisterForm($event)"></app-register>
   </div>
 </div>

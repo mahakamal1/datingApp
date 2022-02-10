@@ -10,12 +10,12 @@
   color: var(--color1);
   cursor: pointer;
 }
-#LearnMoreBtn{
+#CancelBtn{
   border: .2px solid var(--color3);
   color: var(--color3);
   transition: all 1s ease;
 }
-#LearnMoreBtn:hover{
+#CancelBtn:hover{
   border: .2px solid var(--color3);
   background-color: var(--color3);
   color: var(--color1);

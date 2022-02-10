@@ -1,0 +1,12 @@
+<form #fregister="ngForm" class="mt-3" (ngSubmit)="register();''">
+  <div class="mb-3">
+    <label for="UserName" class="form-label">Name</label>
+    <input name="UserName"[(ngModel)]="model.UserName"  type="text" class="form-control" id="UserName" placeholder="username">
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input type="password" name="Password" [(ngModel)]="model.Password" class="form-control" id="password" placeholder="password">
+  </div>
+  <button type="submit" class="btn" id="RegisterBtn">Submit</button>
+  <button type="submit" class="btn" id="CancelBtn"style="margin-left: 20px;" (click)="cancel()">cancel</button>
+</form>

@@ -10,13 +10,25 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDropdownModule,BsDropdownConfig } from 'ngx-bootstrap/dropdown';
 import { MatchesComponent } from './components/matches/matches.component';
+import { RegisterComponent } from './components/register/register.component';
+import { MemberlisrComponent } from './members/memberlisr/memberlisr.component';
+import { MemberDetailComponent } from './members/member-detail/member-detail.component';
+import { ListsComponent } from './lists/lists.component';
+import { NotFoundComponent } from './components/Shared/not-found/not-found.component';
+import {ToastrModule} from 'ngx-toastr'
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     NavComponent,
-    MatchesComponent
+    MatchesComponent,
+    RegisterComponent,
+    MemberlisrComponent,
+    MemberDetailComponent,
+    ListsComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +36,11 @@ import { MatchesComponent } from './components/matches/matches.component';
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    BsDropdownModule
+    BsDropdownModule,
+    ToastrModule.forRoot({
+      positionClass : 'toast-bottom-right'
+    })
+
   ],
   providers: [BsDropdownConfig],
   bootstrap: [AppComponent]

@@ -1,9 +1,3 @@
-:root{
-  --color1 : #FAEEE7;
-  --color2:#D96098;
-  --color3:#325288;
-  --color4:#24A19C;
-}
 nav{
   background-color: var(--color3);
 }
@@ -36,4 +30,7 @@ nav a{
 }
 .custom{
   margin-left: auto !important;
+}
+#dropdown-animated .dropdown-item:hover{
+  cursor: pointer;
 }

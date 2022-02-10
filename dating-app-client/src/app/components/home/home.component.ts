@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/models/user';
+import { UserDto } from 'src/models/user-dto';
 import { UserService } from 'src/Services/user.service';
 
 @Component({
@@ -9,18 +10,27 @@ import { UserService } from 'src/Services/user.service';
 })
 export class HomeComponent implements OnInit {
 
-  usersList : [] = [];
+  TooglerMode:boolean;
+  usersList : UserDto[] = [];
   constructor(private userService:UserService) { }
 
   ngOnInit(){
     this.getAll()
   }
-  async getAll(){
-    await this.userService.getAllUsers().subscribe( res => {
+   getAll(){
+    return this.userService.getAllUsers()
+    .subscribe( res => {
        console.log(res);
     },
     err => {
       console.log(err);
     })
+  }
+  toogleRegisterMode(){
+    this.TooglerMode = !this.TooglerMode;
+  }
+
+  CancelRegisterForm(event:boolean){
+    this.TooglerMode = event;
   }
 }

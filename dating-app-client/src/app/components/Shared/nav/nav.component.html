@@ -51,28 +51,32 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav" *ngIf="accountService.currentUser$| async">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="Matches">Matches</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" >Lists</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link">Fav</a>
-        </li>
+      <ul class="navbar-nav">
+       <ng-container *ngIf="accountService.currentUser$| async">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/Members" routerLinkActive="active">Matches</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/lists">Lists</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/Message" routerLinkActive="active" >Messages</a>
+          </li>
+       </ng-container>
       </ul>
 
-      <form *ngIf="(accountService.currentUser$ | async)===null" (ngSubmit)="onSubmit()" #flogin="ngForm" class="d-flex" style="margin-left: auto !important;">
-        <input name="UserName" [(ngModel)]="model.userName" class="form-control me-2" type="text" placeholder="UserName">
-        <input name="Password" [(ngModel)]="model.password" class="form-control me-2" type="password" placeholder="Password">
-        <button class="btn btn-Custom" type="submit">Login</button>
+      <form (ngSubmit)="onSubmit()" #flogin="ngForm" class="d-flex" style="margin-left: auto !important;">
+        <ng-container *ngIf="(accountService.currentUser$ | async)===null" >
+          <input name="UserName" [(ngModel)]="model.UserName" class="form-control me-2" type="text" placeholder="UserName">
+          <input name="Password" [(ngModel)]="model.Password" class="form-control me-2" type="password" placeholder="Password">
+          <button class="btn btn-Custom" type="submit">Login</button>
+        </ng-container>
       </form>
 
-      <div class="btn-group custom" dropdown *ngIf="accountService.currentUser$ |async">
+      <div class="btn-group custom" dropdown *ngIf="(accountService.currentUser$ |async) as User">
         <button id="button-animated" dropdownToggle type="button" class="btn btn-Custom dropdown-toggle"
                 aria-controls="dropdown-animated">
-          Welcome User<span class="caret"></span>
+          Welcome {{User.userName | titlecase}}<span class="caret"></span>
         </button>
         <ul  id="dropdown-animated" *dropdownMenu class="dropdown-menu custom-dropDown"
             role="menu" aria-labelledby="button-animated">
